@@ -1,3 +1,5 @@
+package chat;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.net.*;
@@ -8,9 +10,9 @@ import javax.swing.*;
 import javax.swing.UIManager;
 
 
-public class Server1 extends Frame implements ActionListener,Runnable,KeyListener
+public class Servidor extends Frame implements ActionListener,Runnable,KeyListener
 {
-        ServerSocket s; // el servidor crea un socket servidor
+		ServerSocket s; // el servidor crea un socket servidor
         Socket so1; // este socket esta asociado al serversocket
         BufferedReader br; // Nos permite leer los datos de entrada bufferedreader=br
         BufferedWriter bw; // Nos permite escribir los datos de entrada bufferedwriter= bw
@@ -25,7 +27,7 @@ public class Server1 extends Frame implements ActionListener,Runnable,KeyListene
         public void run()  // haciendo uso de la interfaz Runnable
 		{
 				try{
-					so1.setSoTimeout(1); // tiempo de espera del socket 1ms, para recibir o enviar una se�al
+					so1.setSoTimeout(1); // tiempo de espera del socket 1ms, para recibir o enviar una señal
 						}
 				catch(Exception e){}
 				while (true)
@@ -41,7 +43,7 @@ public class Server1 extends Frame implements ActionListener,Runnable,KeyListene
 				}
 			}
 	
-        public Server1(String m) // creamos nuestra  GUI de servidor
+        public Servidor(String m) // creamos nuestra  GUI de servidor
         {       
         		super(m);
                 
@@ -90,9 +92,9 @@ public class Server1 extends Frame implements ActionListener,Runnable,KeyListene
                 setResizable(false);
                 nick.requestFocus(); // permite mantener el cursor en el campo de texto
                 try{
-		            s = new ServerSocket(9999); //creaun socket servidor como parametro el puerto por donde va a estar escuchando las paticiones
+		            s = new ServerSocket(786); //creaun socket servidor como parametro el puerto por donde va a estar escuchando las paticiones
 					
-					so1=s.accept(); // metodo que se mantiene ala espera de conexiones entrantes
+					so1=s.accept(); // metodo que se mantiene a la espera de conexiones entrantes
 					br = new BufferedReader(new InputStreamReader(so1.getInputStream()));//entrada de datos por medio del socket
 					bw = new BufferedWriter(new OutputStreamWriter(so1.getOutputStream())); // salida de datos por medio del socket
 		            bw.write("Bienvenido!!!");
@@ -120,7 +122,7 @@ public class Server1 extends Frame implements ActionListener,Runnable,KeyListene
 		{
 			e.printStackTrace();
 				}
-          new Server1("Servidor local");
+          new Servidor("Servidor local");
 			}
 
 	public void actionPerformed ( ActionEvent e)
