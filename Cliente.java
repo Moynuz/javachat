@@ -1,10 +1,11 @@
+package chat;
 import java.awt.*;
 import java.awt.event.*;
 import java.net.*;
 import java.io.*;
 import javax.swing.*;//Librerias :D
 
-public class Client1 extends Frame implements ActionListener,Runnable,KeyListener 
+public class Cliente extends Frame implements ActionListener,Runnable,KeyListener 
 {  //---Variables---
 	Socket so; //Socket donde se realizara la conexión
 	BufferedReader br; //El que escuchara los mensajes
@@ -43,12 +44,12 @@ public class Client1 extends Frame implements ActionListener,Runnable,KeyListene
 		{
 		e.printStackTrace();
 		}//termina el tema         
-        new Client1("Cliente");//crea un objeto de la clase principal Client1 y manda un parametro String
+        new Cliente("Cliente");//crea un objeto de la clase principal Client1 y manda un parametro String
 		
 	}
 
 
-    public Client1(String nombre)//Constrcutor de la clase
+    public Cliente(String nombre)//Constrcutor de la clase
 	{
 		
         super(nombre); //Como no hay una clase padre el super se puede utilizar como un remplazo del SetTitle                      
